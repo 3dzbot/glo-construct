@@ -224,6 +224,13 @@ const movieConstructor = (selector, options) => {
 	const app = document.querySelector(selector);
 	app.classList.add('body-app');
 
+	app.style.color = options.fontColor || '';
+	app.style.backgroundColor = options.backgroundColor || '';
+
+	if(options.subColor) {
+		document.documentElement.style.setProperty("--sub-color", options.subColor);
+	}
+
 	app.style.backgroundImage = options.background ? 
 		`url("${options.background}")` : '';
 
@@ -255,6 +262,9 @@ const movieConstructor = (selector, options) => {
 movieConstructor('.app', {
 	title: 'Ведьмак',
 	background: 'witcher/background.jpg',
+	fontColor: '#ffffff',
+	backgroundColor: '#141218',
+	subColor: 'blue',
 	favicon: 'witcher/logo.png',
 	header: {
 		logo: 'witcher/logo.png',
